@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 
 
 class NoPagination(APITestCase):
+    urls = "rest_link_pagination.tests.urls"
 
     def test_no_header(self):
         url = reverse("none-list")

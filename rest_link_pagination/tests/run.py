@@ -1,5 +1,9 @@
-import django
 from django.conf import settings
+import django
+import os
+import sys
+
+sys.path.insert(1, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 settings.configure(
     INSTALLED_APPS=["rest_link_pagination"],

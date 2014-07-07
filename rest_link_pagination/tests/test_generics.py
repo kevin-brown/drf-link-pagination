@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 
 
 class GenericsTests(test.APITestCase):
+    urls = "rest_link_pagination.tests.urls"
 
     def test_first_page(self):
         url = "%s?page=1" % (reverse("generic-list"), )
