@@ -11,19 +11,14 @@ class LinkPaginationMixin(object):
 
             self.object_list = page.object_list
 
-            links_map = (
-                ("next", "next"),
-                ("previous", "prev"),
-                ("first", "first"),
-                ("last", "last"),
-            )
+            links_attributes = ("first", "next", "previous", "last", )
 
-            for original, new in links_map:
-                if original in page_serializer.data \
-                        and page_serializer.data[original]:
+            for attribute in links_attributes:
+                if attribute in page_serializer.data \
+                        and page_serializer.data[attribute]:
                     link = link_template % {
-                        "rel": new,
-                        "link": page_serializer.data[original],
+                        "rel": attribute,
+                        "link": page_serializer.data[attribute],
                     }
 
                     links.append(link)
