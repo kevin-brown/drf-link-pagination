@@ -34,6 +34,7 @@ returned as an array instead of an object with the key `results`, similar to an
 unpaginated response.
 
 ```http
+HTTP/1.1 200 OK
 Link: <http://testserver/generic/list?page=2>; rel="next"
 Content-Type: application/json
 Allow: GET, HEAD, OPTIONS
