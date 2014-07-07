@@ -1,0 +1,23 @@
+language: python
+
+python:
+  - "2.7"
+
+env:
+  - DJANGO=Django==1.6.1
+  - DJANGO=https://www.djangoproject.com/download/1.7c1/tarball/
+  - DJANGO=https://github.com/django/django/tarball/master
+
+matrix:
+  allow_failures:
+    - env: DJANGO=https://github.com/django/django/tarball/master
+
+install:
+  - "pip install -q $DJANGO --use-mirrors"
+  - "python setup.py install"
+
+script:
+  - "python rest_link_pagination/tests/run.py"
+
+notifications:
+  email: false
